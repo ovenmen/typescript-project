@@ -4,9 +4,8 @@
   "description": "",
   "main": "/src/index.tsx",
   "scripts": {
-    "start": "npx webpack serve --mode=development --color --inline --hot",
-    "compile": "npx tsc --project tsconfig.json",
-    "build": "npx webpack --config=webpack.config.js --color --mode=production --progress"
+    "start": "npx webpack serve --config=webpack.development.config.js --mode=development --color --inline --hot",
+    "build": "npx webpack --config=webpack.production.config.js --color --mode=production --progress"
   },
   "keywords": [],
   "author": "",

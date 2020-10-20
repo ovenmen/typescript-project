@@ -31,11 +31,6 @@ module.exports = {
     resolve: {
         extensions: [ '.tsx', '.ts', '.js', ".css" ],
     },
-    optimization: {
-        removeAvailableModules: false,
-        removeEmptyChunks: false,
-        splitChunks: false
-    },
     devServer: {
         contentBase: path.join(__dirname, 'src'),
         watchContentBase: true,
