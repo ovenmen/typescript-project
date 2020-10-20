@@ -1,11 +1,24 @@
 import React, { FC, ReactElement } from 'react';
-
-import style from './style.module.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom';
 
 const App: FC = (): ReactElement => (
-    <h1>Hello, React! <span className={style.red}>Eeeeehaa!</span>
-        <img width={'100%'} src="https://w-dog.ru/wallpapers/5/2/489084776959642/eda-sladkoe-pirog-yablochnyj-yabloki-yabloko-frukt-fon-oboi-shirokoformatnye-polnoekrannye-shirokoekrannye-shirokoformatnyj.jpg" />
-    </h1>
+    <Router>
+        <Switch>
+            <Route path="/" exact>
+                <h1>Home page!</h1>
+            </Route>
+            <Route path="/about" exact>
+                <h1>About page!</h1>
+            </Route>
+            <Route path="*">
+                <h1>Not found</h1>
+            </Route>
+        </Switch>
+    </Router>
 );
 
 export default App;

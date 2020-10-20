@@ -4,10 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     target: 'web',
+    devtool: "source-map",
     entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'app.bundle.js'
+        filename: 'app.bundle.js',
+        publicPath: '/'
     },
     plugins: [
         new HtmlWebpackPlugin({template: './src/index.html'})
@@ -20,7 +22,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.tsx|ts$/i,
+                test: /\.ts(x?)$/i,
                 use: 'ts-loader',
                 exclude: /node_modules/
             }
@@ -36,8 +38,17 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'src'),
+        watchContentBase: true,
+        historyApiFallback: true,
         compress: true,
         port: 3000,
-        progress: true
+        progress: true,
+        clientLogLevel: 'debug',
+        liveReload: true,
+        open: true,
+        overlay: {
+            warnings: true,
+            errors: true
+        }
     }
 };
