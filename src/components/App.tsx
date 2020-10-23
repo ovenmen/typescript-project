@@ -1,32 +1,28 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, lazy, Suspense } from 'react';
 import {
-    BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
-import Home from '../pages/Home';
-import About from '../pages/About';
-import NotFound from '../pages/NotFound';
+import Navigation from './Navigation';
+import Spinner from './Spinner';
 
-const App: FC = (): ReactElement => (
-    <Router>
-        <p><Link to="/">home</Link></p>
-        <p><Link to="/about">about</Link></p>
-        <p><Link to="/profile">profile</Link></p>
-        <Switch>
-            <Route path="/" exact>
-                <Home />
-            </Route>
-            <Route path="/about" exact>
-                <About />
-            </Route>
-            <Route path="*">
-                <NotFound />
-            </Route>
-        </Switch>
-    </Router>
+const Home = lazy(() => import('../pages/Home'));
+const About = lazy(() => import('../pages/About'));
+const NotFound = lazy(() => import('../pages/NotFound'));
+
+const App: FC = () => (
+    <Container textAlign='justified'>
+        <Navigation />
+        <Suspense fallback={<Spinner />}>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route path="*" component={NotFound} />
+            </Switch>
+        </Suspense>
+    </Container>
 );
 
 export default App;

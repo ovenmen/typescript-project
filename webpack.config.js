@@ -20,7 +20,7 @@ module.exports = {
             title: 'webpack Boilerplate',
             template: path.resolve(__dirname, 'src', 'index.html')
         }),
-        new webpack.HotModuleReplacement()
+        new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         rules: [
@@ -45,7 +45,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js', ".css" ],
+        extensions: [ '.tsx', '.ts', '.js', '.css' ],
     },
     optimization: {
         removeAvailableModules: false,

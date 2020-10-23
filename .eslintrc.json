@@ -23,6 +23,7 @@
     ],
     "rules": {
         "indent": ["error", 4],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"]
     }
 }
