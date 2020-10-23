@@ -6,7 +6,9 @@ import {
     Link
 } from 'react-router-dom';
 
-import style from './style.module.css';
+import Home from '../pages/Home';
+import About from '../pages/About';
+import NotFound from '../pages/NotFound';
 
 const App: FC = (): ReactElement => (
     <Router>
@@ -15,13 +17,13 @@ const App: FC = (): ReactElement => (
         <p><Link to="/profile">profile</Link></p>
         <Switch>
             <Route path="/" exact>
-                <h1>Home page!</h1>
+                <Home />
             </Route>
             <Route path="/about" exact>
-                <h1>About page!</h1>
+                <About />
             </Route>
             <Route path="*">
-                <h1 className={style.red}>Not found</h1>
+                <NotFound />
             </Route>
         </Switch>
     </Router>
