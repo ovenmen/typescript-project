@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
 const NotFound: FC = () => (
-    <section>
+    <article>
         <h1>Page not find!</h1>
         <h2>404</h2>
-    </section>
+    </article>
 );
 
 export default NotFound;
